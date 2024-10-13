@@ -1,9 +1,14 @@
-type OrderStatus =
-  | 'pending'
-  | 'canceled'
-  | 'processing'
-  | 'delivering'
-  | 'delivered'
+import { z } from 'zod'
+
+export const orderStatusSchema = z.enum([
+  'pending',
+  'canceled',
+  'processing',
+  'delivering',
+  'delivered',
+])
+
+export type OrderStatus = z.infer<typeof orderStatusSchema>
 
 interface OrderStatusProps {
   status: OrderStatus
