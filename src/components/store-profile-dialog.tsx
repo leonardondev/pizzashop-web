@@ -6,7 +6,7 @@ import { z } from 'zod'
 
 import {
   getManagedRestaurant,
-  getManagedRestaurantResponse,
+  GetManagedRestaurantResponse,
 } from '@/api/get-managed-restaurant'
 import { updateProfile } from '@/api/update-profile'
 
@@ -54,12 +54,12 @@ export function StoreProfileDialog() {
   const { mutateAsync: updateProfileFn } = useMutation({
     mutationFn: updateProfile,
     onSuccess(_, { name, description }) {
-      const cached = queryClient.getQueryData<getManagedRestaurantResponse>([
+      const cached = queryClient.getQueryData<GetManagedRestaurantResponse>([
         'managed-restaurant',
       ])
 
       if (cached) {
-        queryClient.setQueryData<getManagedRestaurantResponse>(
+        queryClient.setQueryData<GetManagedRestaurantResponse>(
           ['managed-restaurant'],
           {
             ...cached,
