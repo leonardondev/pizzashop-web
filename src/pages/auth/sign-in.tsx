@@ -38,14 +38,18 @@ export function SignIn() {
       return toast.error('Email inválido')
     }
 
-    await authenticate({ email: data.email })
+    try {
+      await authenticate({ email: data.email })
 
-    toast.success('Enviamos um link de autenticação para o seu email.', {
-      action: {
-        label: 'Reenviar',
-        onClick: () => handleSignIn(data),
-      },
-    })
+      toast.success('Enviamos um link de autenticação para o seu email.', {
+        action: {
+          label: 'Reenviar',
+          onClick: () => handleSignIn(data),
+        },
+      })
+    } catch (error) {
+      toast.error((error as Error).message)
+    }
   }
 
   return (
