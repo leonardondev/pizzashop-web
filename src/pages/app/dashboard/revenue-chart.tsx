@@ -56,7 +56,7 @@ export function RevenueChart() {
         </div>
 
         <div className="flex items-center gap-3">
-          <Label />
+          <Label>Período</Label>
           <DateRangePicker date={dateRange} onDateChange={setDateRange} />
         </div>
       </CardHeader>

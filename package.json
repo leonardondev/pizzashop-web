@@ -9,13 +9,15 @@
     "build": "tsc -b && vite build",
     "lint": "eslint src --ext .ts,.tsx",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "test:e2e": "playwright test --ui"
   },
   "keywords": [
     "shadcn-ui",
     "tailwind",
     "eslint",
     "vite",
+    "playwright",
     "dashboard"
   ],
   "dependencies": {
@@ -51,6 +53,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@playwright/test": "^1.49.0",
     "@rocketseat/eslint-config": "^2.2.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
